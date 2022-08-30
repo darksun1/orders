@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('number',100);
-            $table->foreignId('user_id')->constrained('users');
+            $table->string('number',100)->nullable();
+            //$table->foreignId('user_id')->constrained('users');
             $table->tinyInteger('status')->comment('0:CREATED | 1:COLLECTED | 2:IN_STATION | 3:ON_ROUTE | 4:DELIVERED | 5:CANCELED');
             $table->string('origin');
             $table->string('destiny');

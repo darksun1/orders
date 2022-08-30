@@ -21,12 +21,16 @@ Route::get('/', function () {
 });
 Route::get('/nueva-orden', function () {
     return view('form_order', ['products' => Product::all()]);
-});
+})->middleware('auth');
 Route::get('/ordenes', function () {
     return view('orders');
-});
+})->middleware('auth');
 Route::post('/get-city-state/{zipcode}','App\Http\Controllers\ZipcodeController@getCityState');
 Route::post('/save-order','App\Http\Controllers\OrderController@store');
 Route::get('/render-table','App\Http\Controllers\OrderController@index');
 Route::post('/change-status','App\Http\Controllers\OrderController@changeStatus');
 //Route::post('/get-city-state/{zipcode}',[ZipcodeController::class,'getCityState']);
+Route::get('/logout','App\Http\Controllers\Auth\LoginController@logout');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

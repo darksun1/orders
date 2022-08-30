@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Zipcode;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -68,6 +69,7 @@ class OrderController extends Controller
         }
         $order->status=$request->status;
         $order->updated_at=date('Y-m-d H:i:s.0000');
+        $order->updated_by=Auth::id();
         $order->save();
         return $order->id;
     }
@@ -102,6 +104,7 @@ class OrderController extends Controller
             $order->total_weight=$total_w;
             $order->size=$size;
             $order->created_at=date('Y-m-d H:i:s');
+            $order->created_by=Auth::id();
             $order->save();
             $order->number=str_pad($order->id, 5, "0", STR_PAD_LEFT);
             $order->save();

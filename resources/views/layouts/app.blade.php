@@ -42,7 +42,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="oi oi-person" title="person" aria-hidden="true"></span>
+                                    <span class="oi oi-person" title="person" aria-hidden="true"></span>{{Auth::user()->name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                                     <a class="dropdown-item" href="{{url('/logout')}}">Cerrar Sesión</a>

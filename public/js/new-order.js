@@ -42,8 +42,8 @@ function calculateSize(){
         $('#size').val('M');
     else if(total_weight>15 && total_weight<=25)
         $('#size').val('L');
-    else
-        $('#size').val('');
+    else if(total_weight>25)
+        $('#size').val('XL');
 }
 $(document).ready(()=>{
     $('#zip_code').blur(()=>{
@@ -102,7 +102,7 @@ $(document).ready(()=>{
 			total_w:{
 				required: "Debe seleccionar al menos un producto",
 				min: "Debe seleccionar al menos un producto",
-                max: "El peso no puede ser mayor a 25Kg. No cuenta con el servicio estándar para ello, comuníquese con la empresa para realizar un convenio especial"
+                max: "Comuníquese con la empresa para realizar un convenio especial"
 			},
 			total:{
 				required: "Debe seleccionar al menos un producto",

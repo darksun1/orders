@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Http\Controllers\ZipcodeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/render-table','App\Http\Controllers\OrderController@index');
 Route::post('/change-status','App\Http\Controllers\OrderController@changeStatus');
 //Route::post('/get-city-state/{zipcode}',[ZipcodeController::class,'getCityState']);
 Route::get('/logout','App\Http\Controllers\Auth\LoginController@logout');
+Route::post('/import','App\Http\Controllers\ProductController@import')->name('import');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
